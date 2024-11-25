@@ -1,5 +1,4 @@
 import { useEffect, useState } from "react";
-
 export default function Home() {
 
   const [usuarios, setUsuarios] = useState([]);
@@ -30,5 +29,6 @@ export default function Home() {
         </tr>
       )}
     </table>
+    
   );
 }
