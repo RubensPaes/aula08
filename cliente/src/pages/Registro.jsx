@@ -1,4 +1,5 @@
 import { useState } from "react";
+import {useNavigate} from "react-router-dom"
 
 export default function Registrar() {
 
@@ -6,10 +7,12 @@ export default function Registrar() {
 
   const [email, setEmail] = useState("")
 
+  const navigate = useNavigate()
+
   const registrarAll = async () => {
     event.preventDefault()
     try{
-      await fetch('http://localhost:3000/usuarios', {
+     const resposta = await fetch('http://localhost:3000/usuarios', {
         method: 'POST',
         headers: {'Content-Type': 'application/json'},
         body: JSON.stringify({
@@ -18,6 +21,9 @@ export default function Registrar() {
 
         })
       })
+    if(resposta.ok){
+      navigate("/")
+    }
     } catch{
       alert('Ocorreu um erro, programador burro!')
     }
@@ -26,8 +32,10 @@ export default function Registrar() {
   return (
      <main>
       <form onSubmit={registrarAll}>
-      <input type="text" value={nome} onChange={(event) => setNome(event.target.value)}/>
-      <input type="text" value={email} onChange={(event) => setEmail(event.target.value)}/>
+        <p>nome para login</p>
+      <input type="text" value={nome} name="" id="" onChange={(event) => setNome(event.target.value)}/>
+      <p>email para login</p>
+      <input type="text" value={email} name="" id="" onChange={(event) => setEmail(event.target.value)}/>
       <button>Enviar</button>
       </form>
 
