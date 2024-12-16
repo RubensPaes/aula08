@@ -1,7 +1,8 @@
 import { useEffect, useState } from "react";
 import {jsPDF} from "jspdf"
 import "jspdf-autotable"
-import {Button} from '@mui/material'
+import {Button, Link} from '@mui/material'
+
 export default function Home() {
 
   const [usuarios, setUsuarios] = useState([]);
@@ -52,17 +53,19 @@ export default function Home() {
     <tr>
       <td>Nome</td>
       <td>E-Mail</td>
+      <td>Ações</td>
     </tr>
       </thead>
-      <tr>
-        <td>Nome</td>
-        <td>E-mail</td>
-      </tr>
+
       {usuarios.map((usuario) =>
         <tr key={usuario.id}>
           <td>{usuario.nome}</td>
           <td>{usuario.email}</td>
-          <td><button onClick={()=> removerRodolfo(usuario.id)}>X</button></td>
+          <td><button onClick={()=> removerRodolfo(usuario.id)}>X</button>
+          <Link to={'/alterar/' + usuario.id}>
+            <button>alterar</button>
+          </Link>
+          </td>
         </tr>
       )}
     </table>
