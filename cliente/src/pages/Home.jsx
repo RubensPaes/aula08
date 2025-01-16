@@ -1,7 +1,8 @@
 import { useEffect, useState } from "react";
 import {jsPDF} from "jspdf"
 import "jspdf-autotable"
-import {Button, Link} from '@mui/material'
+import {Button} from '@mui/material'
+import { Link } from "react-router-dom";
 
 export default function Home() {
 
