@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import { useParams, useNavigate } from "react-router-dom";
+import styles from "../css/Alterar.module.css";
 
 export default function Alterar() {
   const { id } = useParams();
@@ -53,9 +54,9 @@ export default function Alterar() {
   };
 
   return (
-    <div>
+    <div className={styles.container}>
       <h1>Alterar Usuário</h1>
-      <form onSubmit={salvarAlteracoes}>
+      <form onSubmit={salvarAlteracoes} className={styles.form}>
         <div>
           <p>Nome:</p>
           <input

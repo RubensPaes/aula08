@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import styles from "../css/Registro.module.css";
 
 export default function Registrar() {
   const [nome, setNome] = useState("");
@@ -39,7 +40,8 @@ export default function Registrar() {
   };
 
   return (
-    <main>
+    <main className={styles.container}>
+      <h1>Cadastrar Instrumento</h1>
       <form onSubmit={registrarAll}>
         <p>Nome</p>
         <input
